@@ -45,7 +45,7 @@ namespace Focusmark.SDK.Account
         {
             try
             {
-                await this.tokenRepository.DeleteTokens();
+                await this.tokenRepository.DeleteToken();
                 return new ServiceResponse();
             }
             catch (Exception)
@@ -58,7 +58,7 @@ namespace Focusmark.SDK.Account
         public async Task<ServiceResponse<JwtTokens>> GetTokens()
         {
             this.logger.LogInformation("Fetching previously retrieved tokens.");
-            JwtTokens token = await this.tokenRepository.GetTokens();
+            JwtTokens token = await this.tokenRepository.GetToken();
 
             if (token == null)
             {

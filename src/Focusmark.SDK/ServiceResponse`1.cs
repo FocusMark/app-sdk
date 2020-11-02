@@ -9,7 +9,7 @@
 
         public ServiceResponse(T data, params ResponseError[] errors) : base(errors)
         {
-
+            this.Data = data ?? throw new System.ArgumentNullException(nameof(data));
         }
 
         public ServiceResponse(params ResponseError[] errors) : base(errors)
