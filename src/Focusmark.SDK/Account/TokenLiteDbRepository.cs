@@ -11,13 +11,13 @@ namespace Focusmark.SDK.Account
     {
         // We name it something a little obscure just to not draw attention to what it's contents hold.
         private const string DatabaseName = "dat.tmp";
-        private const string TokenCollection = "tokens";
+        private const string TokenCollection = "jwt";
 
         // IDataProtectionProvider specific
         private const string TokenProtector = "focusmark:cli:auth";
-        private const string AccessTokenProtector = "focusmark:cli:auth:access";
-        private const string IdTokenProtector = "focusmark:cli:auth:id";
-        private const string RefreshTokenProtector = "focusmark:cli:auth:refresh";
+        private const string AccessTokenProtector = "focusmark:sdk:auth:access";
+        private const string IdTokenProtector = "focusmark:sdk:auth:id";
+        private const string RefreshTokenProtector = "focusmark:sdk:auth:refresh";
 
         private readonly IDatabaseFactory databaseFactory;
         private readonly IDataProtectionProvider protectionProvider;
