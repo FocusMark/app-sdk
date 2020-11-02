@@ -1,5 +1,6 @@
 ﻿using FocusMark.SDK.Account;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 
@@ -9,6 +10,11 @@ namespace FocusMark.SDK
     {
         public static IServiceCollection AddFocusMark(this IServiceCollection services, Action<FocusMarkBuilder> focusmarkBuilder)
         {
+            if (!services.Any(service => service.ServiceType == typeof(ILogger<>)) || !services.Any(service => service.ServiceType == typeof(ILogger)))
+            {
+                services.AddLogging();
+            }
+
             services.AddSingleton<ITokenRepository, TokenLiteDbRepository>();
             services.AddSingleton<IAccountService, OAuthAuthorizationService>();
             services.AddSingleton<IDatabaseFactory, LiteDatabaseFactory>();
@@ -17,7 +23,7 @@ namespace FocusMark.SDK
 
             // If the builder was not used to add a platform specific implementation of ILoginService then we throw.
             // An implementation of ILoginService is required for the SDK to work. We will not accept tokens that was not created by the SDK.
-            if (services.Any(service => service.ServiceType == typeof(ILoginService)))
+            if (!services.Any(service => service.ServiceType == typeof(ILoginService)))
             {
                 throw new InvalidOperationException($"You can not add FocusMark without also configuring platform specific services via a platform specific extension method on {typeof(FocusMarkBuilder).Name}");
             }
