@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.1</Version>
+    <Authors>Johnathon Sullinger</Authors>
+    <Company>FocusMark</Company>
+    <Description>FocusMark Desktop SDK for interacting with the FocusMark API in Desktop applications</Description>
+    <Copyright>FocusMark 2020</Copyright>
+    <PackageProjectUrl>https://github.com/focusmark</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/focusmark/focusmark-sdk</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
