@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Focusmark.SDK.Account
+namespace FocusMark.SDK.Account
 {
     [Serializable]
     internal class HttpListenerNotSupportedException : Exception

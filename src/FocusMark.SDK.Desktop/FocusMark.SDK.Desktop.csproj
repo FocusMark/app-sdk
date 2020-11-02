@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Focusmark.SDK\Focusmark.SDK.csproj" />
+    <ProjectReference Include="..\FocusMark.SDK\FocusMark.SDK.csproj" />
   </ItemGroup>
 
 </Project>

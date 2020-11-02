@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Focusmark.SDK.Account
+namespace FocusMark.SDK.Account
 {
     public interface ILoginService
     {

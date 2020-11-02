@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Focusmark.SDK
+namespace FocusMark.SDK
 {
 
     public class FocusMarkBuilder

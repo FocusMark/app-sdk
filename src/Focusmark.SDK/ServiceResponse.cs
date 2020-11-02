@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Focusmark.SDK
+namespace FocusMark.SDK
 {
     public class ServiceResponse
     {

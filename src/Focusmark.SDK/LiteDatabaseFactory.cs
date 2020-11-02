@@ -1,7 +1,7 @@
 ﻿using LiteDB;
 using System.IO;
 
-namespace Focusmark.SDK
+namespace FocusMark.SDK
 {
     public class LiteDatabaseFactory : IDatabaseFactory
     {

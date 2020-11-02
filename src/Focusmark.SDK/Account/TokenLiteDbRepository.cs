@@ -5,7 +5,7 @@ using System;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace Focusmark.SDK.Account
+namespace FocusMark.SDK.Account
 {
     public class TokenLiteDbRepository : ITokenRepository
     {

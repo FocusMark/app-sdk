@@ -1,4 +1,4 @@
-﻿namespace Focusmark.SDK
+﻿namespace FocusMark.SDK
 {
     public class ResponseError
     {

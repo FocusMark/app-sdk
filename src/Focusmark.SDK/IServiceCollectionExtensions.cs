@@ -1,9 +1,9 @@
-﻿using Focusmark.SDK.Account;
+﻿using FocusMark.SDK.Account;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
-namespace Focusmark.SDK
+namespace FocusMark.SDK
 {
     public static class IServiceCollectionExtensions
     {

@@ -1,5 +1,5 @@
-﻿using Focusmark.SDK;
-using Focusmark.SDK.Account;
+﻿using FocusMark.SDK;
+using FocusMark.SDK.Account;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FocusMark.SDK.Desktop

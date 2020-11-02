@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Focusmark.SDK.Account
+namespace FocusMark.SDK.Account
 {
     public class DesktopLoginService : ILoginService
     {

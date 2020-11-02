@@ -2,7 +2,7 @@
 using System;
 using System.Text;
 
-namespace Focusmark.SDK.Account
+namespace FocusMark.SDK.Account
 {
     public class JwtTokens
     {

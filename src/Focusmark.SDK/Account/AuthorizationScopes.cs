@@ -1,4 +1,4 @@
-﻿namespace Focusmark.SDK.Account
+﻿namespace FocusMark.SDK.Account
 {
     public class AuthorizationScopes
     {

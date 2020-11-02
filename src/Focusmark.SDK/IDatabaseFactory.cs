@@ -1,6 +1,6 @@
 ﻿using LiteDB;
 
-namespace Focusmark.SDK
+namespace FocusMark.SDK
 {
     public interface IDatabaseFactory
     {

@@ -1,4 +1,4 @@
-﻿namespace Focusmark.SDK
+﻿namespace FocusMark.SDK
 {
     public class ServiceResponse<T> : ServiceResponse where T : class
     {
