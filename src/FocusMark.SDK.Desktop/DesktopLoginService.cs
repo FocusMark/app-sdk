@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace Focusmark.SDK.Account
 {
-    // TODO: Move this into a FocusMark.SDK.Desktop package. Create a 2nd package of FocusMark.SDK.Mobile for mobile platform specific implementation.
     public class DesktopLoginService : ILoginService
     {
         private const string oauthFlow = "code";

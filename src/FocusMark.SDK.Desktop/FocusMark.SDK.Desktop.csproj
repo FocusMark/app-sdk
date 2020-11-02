@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Focusmark.SDK.Account\Focusmark.SDK.csproj" />
+    <ProjectReference Include="..\Focusmark.SDK\Focusmark.SDK.csproj" />
   </ItemGroup>
 
 </Project>
