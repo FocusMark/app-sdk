@@ -18,6 +18,7 @@ namespace FocusMark.TestUI
         {
             InitializeComponent();
             this.Configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
                 .AddUserSecrets("79e07d49-7921-4237-8c0f-03c3339ffbca")
                 .Build();
 
