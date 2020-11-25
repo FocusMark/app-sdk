@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FocusMark.SDK.Desktop", "src\FocusMark.SDK.Desktop\FocusMark.SDK.Desktop.csproj", "{AA78E2C6-775F-4D19-9A66-C0B81070B78F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FocusMark.SDK.Desktop", "src\FocusMark.SDK.Desktop\FocusMark.SDK.Desktop.csproj", "{AA78E2C6-775F-4D19-9A66-C0B81070B78F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FocusMark.SDK", "src\Focusmark.SDK\FocusMark.SDK.csproj", "{1A5C42C3-007A-4F00-84FC-0D0C997ABB7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FocusMark.SDK.Tests", "tests\FocusMark.SDK.Tests\FocusMark.SDK.Tests.csproj", "{2222AF7A-381B-4684-BEB8-54F88BBAD3EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FocusMark.SDK.Tests", "tests\FocusMark.SDK.Tests\FocusMark.SDK.Tests.csproj", "{2222AF7A-381B-4684-BEB8-54F88BBAD3EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FocusMark.TestUI", "src\FocusMark.TestUI\FocusMark.TestUI.csproj", "{E690D212-F46E-40FE-8341-5F4C7D06A998}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2222AF7A-381B-4684-BEB8-54F88BBAD3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2222AF7A-381B-4684-BEB8-54F88BBAD3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2222AF7A-381B-4684-BEB8-54F88BBAD3EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E690D212-F46E-40FE-8341-5F4C7D06A998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E690D212-F46E-40FE-8341-5F4C7D06A998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E690D212-F46E-40FE-8341-5F4C7D06A998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E690D212-F46E-40FE-8341-5F4C7D06A998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,13 +16,13 @@ namespace FocusMark.SDK.Account
         private const string oauthFlow = "code";
         private const string grant_type = "authorization_code";
 
-        private readonly SdkConfiguration configuration;
+        private readonly AccountConfiguration configuration;
         private readonly IHttpClientFactory clientFactory;
 
         public DesktopLoginService(IConfiguration configuration, IHttpClientFactory clientFactory)
         {
             IConfigurationSection focusmarkSection = configuration.GetSection("FocusMark");
-            this.configuration = new SdkConfiguration();
+            this.configuration = new AccountConfiguration();
             focusmarkSection.Bind(this.configuration);
 
             this.clientFactory = clientFactory ?? throw new ArgumentNullException(nameof(clientFactory));

@@ -1,6 +1,6 @@
 ﻿namespace FocusMark.SDK.Account
 {
-    public class SdkConfiguration
+    public class AccountConfiguration
     {
         public string LoginUrl { get; set; }
         public string OAuthTokenUrl { get; set; }

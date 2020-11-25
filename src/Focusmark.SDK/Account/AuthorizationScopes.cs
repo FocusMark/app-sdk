@@ -10,9 +10,9 @@
         public const string ApiProjectDelete = "app.focusmark.api.project/project.delete";
 
         // Tasks
-        public const string ApiTaskWrite = "app.focusmark.api.Task/Task.write";
-        public const string ApiTaskRead = "app.focusmark.api.Task/Task.read";
-        public const string ApiTaskDelete = "app.focusmark.api.Task/Task.delete";
+        public const string ApiTaskWrite = "app.focusmark.api.task/task.write";
+        public const string ApiTaskRead = "app.focusmark.api.task/task.read";
+        public const string ApiTaskDelete = "app.focusmark.api.task/task.delete";
 
         /// <summary>
         /// Creates an array of string values representing all scopes.
