@@ -17,7 +17,7 @@ namespace FocusMark.TestUI
         public MainWindow()
         {
             InitializeComponent();
-            this.Configuration = new ConfigurationBuilder()
+            IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .AddUserSecrets("79e07d49-7921-4237-8c0f-03c3339ffbca")
                 .Build();
@@ -25,18 +25,15 @@ namespace FocusMark.TestUI
             this.Services = new ServiceCollection()
                 .AddFocusMark(builder => builder.AddFocusMarkDesktop())
                 .AddHttpClient()
+                .AddSingleton<IConfiguration>(configuration)
                 .BuildServiceProvider();
-
-            this.HttpClientFactory = this.Services.GetRequiredService<IHttpClientFactory>();
         }
 
-        public IConfiguration Configuration { get; }
         public IServiceProvider Services { get; set; }
-        public IHttpClientFactory HttpClientFactory { get; }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            ILoginService loginService = new DesktopLoginService(this.Configuration, this.HttpClientFactory);
+            ILoginService loginService = this.Services.GetRequiredService<ILoginService>();
             ServiceResponse loginResponse = await loginService.Login();
 
             if (loginResponse.IsSuccessful)
