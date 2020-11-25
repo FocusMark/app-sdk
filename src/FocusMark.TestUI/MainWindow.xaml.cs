@@ -24,7 +24,6 @@ namespace FocusMark.TestUI
 
             this.Services = new ServiceCollection()
                 .AddFocusMark(builder => builder.AddFocusMarkDesktop())
-                .AddHttpClient()
                 .AddSingleton<IConfiguration>(configuration)
                 .BuildServiceProvider();
         }

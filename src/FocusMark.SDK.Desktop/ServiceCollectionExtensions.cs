@@ -9,6 +9,7 @@ namespace FocusMark.SDK.Desktop
         public static FocusMarkBuilder AddFocusMarkDesktop(this FocusMarkBuilder builder)
         {
             builder.ServiceRegistery.AddSingleton<ILoginService, DesktopLoginService>();
+            builder.ServiceRegistery.AddHttpClient();
             return builder;
         }
     }
