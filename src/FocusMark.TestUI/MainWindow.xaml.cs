@@ -36,7 +36,7 @@ namespace FocusMark.TestUI
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            var loginService = new DesktopLoginService(this.Configuration, this.HttpClientFactory);
+            ILoginService loginService = new DesktopLoginService(this.Configuration, this.HttpClientFactory);
             ServiceResponse loginResponse = await loginService.Login();
 
             if (loginResponse.IsSuccessful)
