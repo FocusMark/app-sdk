@@ -21,7 +21,7 @@ namespace FocusMark.TestUI.ViewModels.MainWindowViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string UserId { get; private set; } = "UserId: None";
+        public string UserId { get; private set; } = "None";
 
         public async void AuthorizeUser()
         {
@@ -33,7 +33,7 @@ namespace FocusMark.TestUI.ViewModels.MainWindowViewModels
                 return;
             }
 
-            this.UserId = $"UserId: {authResponse.Data.JwtTokens.GetAccessToken().UserId}";
+            this.UserId = authResponse.Data.JwtTokens.GetAccessToken().UserId;
 
             this.OnPropertyChanged(nameof(UserId));
         }

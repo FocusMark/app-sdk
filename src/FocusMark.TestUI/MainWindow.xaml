@@ -20,6 +20,9 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         </Grid.ColumnDefinitions>
 
         <Button Click="Button_Click" VerticalAlignment="Center">Log In</Button>
-        <TextBlock Grid.Column="1" Text="{Binding Path=AccountViewModel.UserId}"></TextBlock>
+        <TextBlock Grid.Column="1">
+            <Run FontWeight="Bold" Text="User Id:"></Run>
+            <Run Text="{Binding Path=AccountViewModel.UserId, Mode=OneWay}"></Run>
+        </TextBlock>
     </Grid>
 </mah:MetroWindow>
