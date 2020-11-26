@@ -15,6 +15,7 @@ namespace FocusMark.SDK
                 services.AddLogging();
             }
 
+            services.AddDataProtection();
             services.AddSingleton<ITokenRepository, TokenLiteDbRepository>();
             services.AddSingleton<IAccountService, OAuthAuthorizationService>();
             services.AddSingleton<IDatabaseFactory, LiteDatabaseFactory>();

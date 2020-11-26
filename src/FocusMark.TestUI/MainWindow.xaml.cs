@@ -1,6 +1,9 @@
 ﻿using FocusMark.SDK;
 using FocusMark.SDK.Account;
 using FocusMark.SDK.Desktop;
+using FocusMark.TestUI.ViewModels;
+using FocusMark.TestUI.ViewModels.MainWindowViewModels;
+using MahApps.Metro.Controls;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,35 +15,35 @@ namespace FocusMark.TestUI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public IServiceProvider Services { get; set; }
+
+        public AccountViewModel AccountViewModel => ((MainWindowViewModel)this.DataContext).AccountViewModel;
+
+        protected override void OnInitialized(EventArgs e)
+        {
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .AddUserSecrets("79e07d49-7921-4237-8c0f-03c3339ffbca")
                 .Build();
 
             this.Services = new ServiceCollection()
-                .AddFocusMark(builder => builder.AddFocusMarkDesktop())
-                .AddSingleton<IConfiguration>(configuration)
+                .AddFocusMark(builder => builder.AddTestUI(configuration))
                 .BuildServiceProvider();
+
+            this.DataContext = this.Services.GetRequiredService<MainWindowViewModel>();
+            base.OnInitialized(e);
         }
 
-        public IServiceProvider Services { get; set; }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ILoginService loginService = this.Services.GetRequiredService<ILoginService>();
-            ServiceResponse loginResponse = await loginService.Login();
-
-            if (loginResponse.IsSuccessful)
-            {
-                return;
-            }
-
-            // handle errors here
+            this.AccountViewModel.AuthorizeUser();
         }
     }
 }

@@ -3,6 +3,6 @@
     public class LoginResponse
     {
         public LoginResponse(JwtTokens tokens) => this.JwtTokens = tokens;
-        JwtTokens JwtTokens { get; }
+        public JwtTokens JwtTokens { get; }
     }
 }
