@@ -67,7 +67,7 @@ namespace FocusMark.SDK.Account
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 url = url.Replace("&", "^&");
-                Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+                Process.Start(new ProcessStartInfo("cmd", $"/c start {url}"));
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
@@ -76,6 +76,10 @@ namespace FocusMark.SDK.Account
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
                 Process.Start("xdg-open", url);
+            }
+            else
+            {
+                throw new PlatformNotSupportedException();
             }
 
             HttpListenerContext context = await listener.GetContextAsync();
@@ -103,7 +107,7 @@ namespace FocusMark.SDK.Account
 
         private async Task RespondWithFailedLogin(HttpListenerContext requestContext)
         {
-            byte[] failedBuffer = Encoding.UTF8.GetBytes("<html><body>FocusMark failed to log you in.</body></html>");
+            byte[] failedBuffer = Encoding.UTF8.GetBytes(this.GetLogInFailedHtml());
 
             requestContext.Response.StatusCode = 500;
             requestContext.Response.ContentLength64 = failedBuffer.Length;
@@ -114,13 +118,45 @@ namespace FocusMark.SDK.Account
 
         private async Task RespondWithSuccessfulLogin(HttpListenerContext requestContext)
         {
-            byte[] sucessBuffer = Encoding.UTF8.GetBytes("<html><body>FocusMark Login Completed.</body></html>");
+            byte[] sucessBuffer = Encoding.UTF8.GetBytes(this.GetLogInSuccessHtml());
 
             requestContext.Response.StatusCode = 200;
             requestContext.Response.ContentLength64 = sucessBuffer.Length;
 
             await requestContext.Response.OutputStream.WriteAsync(sucessBuffer, 0, sucessBuffer.Length);
             requestContext.Response.OutputStream.Close();
+        }
+
+        private string GetLogInSuccessHtml()
+        {
+            return
+@"<html>
+    <head>
+        <title>FocusMark Login</title>
+    </head>
+   <body>
+       <div>
+            <h1>FocusMark Login Completed.</h1>
+            <p>You may close this browser tab.</p>
+       </div>
+   </body>
+</html>";
+        }
+
+        private string GetLogInFailedHtml()
+        {
+            return
+@"<html>
+    <head>
+        <title>FocusMark Login</title>
+    </head>
+   <body>
+       <div>
+            <h1>FocusMark Login Failed.</h1>
+            <p>You may close this browser tab.</p>
+       </div>
+   </body>
+</html>";
         }
     }
 }

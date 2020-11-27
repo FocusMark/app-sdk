@@ -23,6 +23,8 @@ namespace FocusMark.TestUI.ViewModels.MainWindowViewModels
 
         public string UserId { get; private set; } = "None";
 
+        public string Scopes { get; private set; } = "None";
+
         public async void AuthorizeUser()
         {
             ServiceResponse<LoginResponse> authResponse = await this.accountService.AuthorizeUser();
@@ -33,9 +35,11 @@ namespace FocusMark.TestUI.ViewModels.MainWindowViewModels
                 return;
             }
 
-            this.UserId = authResponse.Data.JwtTokens.GetAccessToken().UserId;
-
+            AccessToken accessToken = authResponse.Data.JwtTokens.GetAccessToken();
+            this.UserId = accessToken.UserId;
+            this.Scopes = string.Join(", ", accessToken.Scopes);
             this.OnPropertyChanged(nameof(UserId));
+            this.OnPropertyChanged(nameof(Scopes));
         }
 
         private void OnPropertyChanged(string property)

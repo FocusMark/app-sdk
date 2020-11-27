@@ -19,10 +19,19 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button Click="Button_Click" VerticalAlignment="Center">Log In</Button>
-        <TextBlock Grid.Column="1">
-            <Run FontWeight="Bold" Text="User Id:"></Run>
-            <Run Text="{Binding Path=AccountViewModel.UserId, Mode=OneWay}"></Run>
-        </TextBlock>
+        <StackPanel>
+            <Button Margin="20" Click="Button_Click" VerticalAlignment="Center">Log In</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock Margin="20">
+                <Run FontWeight="Bold" Text="User Id:"></Run>
+                <Run Text="{Binding Path=AccountViewModel.UserId, Mode=OneWay}"></Run>
+            </TextBlock>
+            <TextBlock Margin="20,0,20,20" TextWrapping="Wrap">
+                <Run FontWeight="Bold" Text="User Id:"></Run>
+                <Run Text="{Binding Path=AccountViewModel.Scopes, Mode=OneWay}"></Run>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </mah:MetroWindow>
