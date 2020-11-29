@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace FocusMark.SDK.Account
 {
@@ -12,5 +13,13 @@ namespace FocusMark.SDK.Account
 
         [JsonProperty("exp")]
         public long ExpiresAt { get; set; }
+
+        public bool IsExpired()
+        {
+            DateTimeOffset expirationOffset = DateTimeOffset.FromUnixTimeMilliseconds(this.ExpiresAt);
+            DateTime expirationDateTime = expirationOffset.UtcDateTime;
+
+            return expirationDateTime >= DateTime.UtcNow;
+        }
     }
 }

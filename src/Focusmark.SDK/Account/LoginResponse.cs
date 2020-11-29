@@ -2,7 +2,14 @@
 {
     public class LoginResponse
     {
-        public LoginResponse(JwtTokens tokens) => this.JwtTokens = tokens;
-        public JwtTokens JwtTokens { get; }
+        public LoginResponse(JwtTokens tokens)
+        {
+            this.AccessToken = tokens.GetAccessToken();
+            this.IdToken = tokens.GetIdToken();
+        }
+
+        public AccessToken AccessToken { get; }
+
+        public IdToken IdToken { get; }
     }
 }

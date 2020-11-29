@@ -35,7 +35,7 @@ namespace FocusMark.TestUI.ViewModels.MainWindowViewModels
                 return;
             }
 
-            AccessToken accessToken = authResponse.Data.JwtTokens.GetAccessToken();
+            AccessToken accessToken = authResponse.Data.AccessToken;
             this.UserId = accessToken.UserId;
             this.Scopes = string.Join(", ", accessToken.Scopes);
             this.OnPropertyChanged(nameof(UserId));

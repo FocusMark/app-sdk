@@ -23,9 +23,7 @@ namespace FocusMark.SDK.Account
                 return true;
             }
 
-            DateTime expiration = DateTimeOffset.FromUnixTimeSeconds(token.ExpiresAt).LocalDateTime;
-
-            return expiration <= DateTime.Now;
+            return token.IsExpired();
         }
 
         public bool IsIdTokenExpired()
@@ -36,9 +34,7 @@ namespace FocusMark.SDK.Account
                 return true;
             }
 
-            DateTime expiration = new DateTime(token.ExpiresAt);
-
-            return expiration >= DateTime.Now;
+            return token.IsExpired();
         }
 
         public AccessToken GetAccessToken()
