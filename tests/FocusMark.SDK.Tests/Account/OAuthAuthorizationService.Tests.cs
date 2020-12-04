@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FocusMark.SDK.Account
@@ -36,6 +33,9 @@ namespace FocusMark.SDK.Account
             Assert.IsNotNull(authResponse.Data.AccessToken.UserId);
             Assert.AreNotEqual(0, authResponse.Data.AccessToken.Scopes.Length);
             Assert.AreNotEqual(0, authResponse.Data.AccessToken.ExpiresAt);
+            repositoryMock.Verify(repo => repo.DeleteToken(), Times.Once);
+            repositoryMock.Verify(repo => repo.SaveToken(It.IsAny<JwtTokens>()), Times.Once);
+            loginMock.Verify(repo => repo.Login(), Times.Once);
         }
     }
 }
